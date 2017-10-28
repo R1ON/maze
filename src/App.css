@@ -1,4 +1,21 @@
+.square-1 {
+	background: #000;
+}
+
+.square-0 {
+	background: #fff;
+}
+
+.space-span {
+	padding: 10px;
+}
+
+body {
+	background: #c8c8c8;
+}
+
 .App {
+  margin-top: 30px;
   text-align: center;
 }
 
