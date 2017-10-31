@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
 import { MazeGenerator, MazeSolver } from 'maze-es6-solver';
 
 class App extends Component {

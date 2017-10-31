@@ -1,8 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { render } from 'react-dom';
 
-ReactDOM.render(<App />, document.getElementById('maze'));
-registerServiceWorker();
+import './assets/sass/main.sass';
+
+import App from './app';
+
+const renderApp = () => {
+	render(
+			<App />,
+		document.querySelector('#mount_place')
+	)
+}
+
+renderApp()
+
+if(module.hot) {
+	module.hot.accept('./app', () => { renderApp() })
+}

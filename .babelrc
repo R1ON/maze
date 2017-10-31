@@ -1,0 +1,12 @@
+{
+	"presets": [
+		"es2015",
+		"react",
+		"stage-3"
+	],
+	"plugins": [
+		"transform-runtime",
+		"react-html-attrs",
+		"react-hot-loader/babel"
+	]
+}
