@@ -1,13 +1,21 @@
-.square-1 {
-	background: #000;
+.wall {
+	background: black;
+	padding: 1px 4px 0 6px;
 }
 
-.square-0 {
-	background: #fff;
+.space {
+	background: white;
+	padding: 1px 4px 0 6px;
 }
 
-.space-span {
-	padding: 10px;
+.user {
+	background: green;
+	padding: 1px 4px 0 6px;
+}
+
+.exit {
+	background: red;
+	padding: 1px 4px 0 6px;
 }
 
 body {

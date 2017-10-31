@@ -2,42 +2,34 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { MazeGenerator, MazeSolver } from 'maze-es6-solver';
+
 class App extends Component {
   constructor(props) {
     super(props);
 
+
     this.state = {
-      arr: [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-            [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-            [1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1],
-            [1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1],
-            [1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1],
-            [1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
-            [1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
-            [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1],
-            [1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1],
-            [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1],
-            [1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1],
-            [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1]]
+      mazeGenerator: new MazeGenerator(10, 10)
     }
   }
 
 
-
   render() {
-    // var arr = new Array(20).fill(0).map(() => new Array(20).fill(0));
+     const maze = this.state.mazeGenerator.run();
+
     return (
       <div className="App">
-        {this.state.arr.map(i => {
+        {maze.map(i => {
           return (
-            <div className="vetrical-space">
-              {i.map((j, index) => {
-                return (
-                  <span className={`square-${j}`} key={index}>
-                    <span className="space-span"></span>
-                  </span>
-                );
+            <div>
+              {i.map(j => {
+                switch (j) {
+                  case " ": return <span className="space"></span>
+                  case "=": return <span className="wall"></span>
+                  case "E": return <span className="user"></span>
+                  case "G": return <span className="exit"></span>
+                }
               })}
             </div>
           );
